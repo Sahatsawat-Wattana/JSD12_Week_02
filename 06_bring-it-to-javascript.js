@@ -96,7 +96,7 @@ class Orders {
         if (product.isProductDiscount) {
             pricePerUnit = pricePerUnit * (1 - (product.productDiscountPercent / 100));
         }
-        return pricePerUnit * this.quantity;
+        return pricePerUnit;
     }
 }
 class Reviews {
