@@ -72,10 +72,11 @@ class Logistics_Company {
     }
 }
 class Shipments {
-    constructor(shipping_id,logistic_company,shipping_status) {
+    constructor(shipping_id,logistic_company,shipping_status,shiiping_date) {
         this.shipping_id = shipping_id,
         this.shipping_logistic_company_id = logistic_company.logistics_company_id,
-        this.shipping_status = shipping_status
+        this.shipping_status = shipping_status,
+        this.shiiping_date = shiiping_date
     }
 }
 class Orders {
@@ -99,11 +100,12 @@ class Orders {
     }
 }
 class Reviews {
-    constructor(review_id,order,review_rating,review_comment) {
+    constructor(review_id,order,review_rating,review_comment,review_date) {
         this.review_id = review_id,
         this.order_id = order.order_id,
         this.review_rating = review_rating,
-        this.review_comment = review_comment
+        this.review_comment = review_comment,
+        this.review_date = review_date
     }
 }
 
@@ -120,11 +122,11 @@ const product_inventory_2 = new Products_Inventory(product_2,"Available",10);
 const payment_1 = new Payments("PAY001","VISA","01022000","Completed");
 const payment_2 = new Payments("PAY002","VISA","01022000","Completed");
 const logistics_company_1 = new Logistics_Company("LCOM001","Movemi","0201","ade@gmail.com","87 io rd.");
-const shipping_1 = new Shipments('SH001',logistics_company_1,"Delivered");
+const shipping_1 = new Shipments('SH001',logistics_company_1,"Delivered","01022000");
 const order_1 = new Orders("O001",customer_1,product_1,payment_1,shipping_1,2,"01022000",'Completed');
 const order_2 = new Orders("O002",customer_1,product_2,payment_2,shipping_1,2,"01022000",'Completed');
-const review_1 = new Reviews("R001",order_1,4.5,"Good");
-const review_2 = new Reviews("R002",order_2,4.85,"Excellent");
+const review_1 = new Reviews("R001",order_1,4.5,"Good","05022000");
+const review_2 = new Reviews("R002",order_2,4.85,"Excellent","06022000");
 const cart_01 = [order_1,order_2];
 
 console.log(customer_1);
@@ -138,4 +140,5 @@ console.log(logistics_company_1);
 console.log(shipping_1);
 console.log(order_1);
 console.log(review_1);
+console.log(review_2);
 console.log(cart_01);
