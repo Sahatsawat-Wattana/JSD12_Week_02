@@ -1,0 +1,1 @@
+select m.name, sum(o.quantity) as total_sold from menuitems m join orderitems o on m.item_id = o.item_id group by m.name order by total_sold desc limit 1;

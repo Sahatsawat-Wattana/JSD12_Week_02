@@ -1,0 +1,1 @@
+select * from orders where staff_id =1;

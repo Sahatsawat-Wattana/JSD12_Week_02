@@ -1,1 +1,2 @@
-select * from staff;
+select * 
+from ingredients;

@@ -1,0 +1,1 @@
+select i.name from ingredients i join suppliers s on i.supplier_id = s.supplier_id where s.name = 'Patty''s Premium Meats';

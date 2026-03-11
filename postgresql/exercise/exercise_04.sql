@@ -1,0 +1,1 @@
+select * from menuitems order by price limit 3;

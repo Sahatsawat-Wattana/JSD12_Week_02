@@ -1,0 +1,1 @@
+select s.first_name,s.last_name,count(o.*) as order_count from staff s join orders o on s.staff_id = o.staff_id group by s.staff_id order by order_count desc;

@@ -1,0 +1,1 @@
+select date(order_date) as sale_day, sum(total_price) as daily_revenue from orders group by sale_day order by sale_day;
