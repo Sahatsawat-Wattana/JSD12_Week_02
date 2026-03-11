@@ -50,7 +50,7 @@ class Products {
 class Products_Inventory {
     constructor(product,product_inventory_status,product_inventory_quantity) {
         this.product_id = product.product_id,
-        this.product_inventory_status = product_inventory_status,
+        this.isinStock = product_inventory_status,
         this.product_inventory_quantity = product_inventory_quantity
     }
 }
@@ -122,8 +122,8 @@ const ProductPublishHistory = [product_publish_1,product_publish_2];
 const product_1 = new Products("P001","Modern Chinese","Learning Chinese 1", author_1,product_publish_1,"14177","Language",500,true,10);
 const product_2 = new Products("P002","Modern chinese 2","Learning Chinese 2",author_2,product_publish_2,"11202","Lanuage",850,false,0);
 const porductList = [product_1,product_2]; 
-const product_inventory_1 = new Products_Inventory(product_1,"Available",10);
-const product_inventory_2 = new Products_Inventory(product_2,"Available",10);
+const product_inventory_1 = new Products_Inventory(product_1,true,10);
+const product_inventory_2 = new Products_Inventory(product_2,true,10);
 const productStock = [product_inventory_1,product_inventory_2];
 const payment_1 = new Payments("PAY001","VISA","01022000","Completed");
 const payment_2 = new Payments("PAY002","VISA","01022000","Completed");
