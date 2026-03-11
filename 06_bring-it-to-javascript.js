@@ -79,24 +79,25 @@ class Shipments {
         this.shiiping_date = shiiping_date
     }
 }
+
 class Orders {
-    constructor(order_id,customer,product,payment,shipping,quantity,order_date,order_status) {
+    constructor(order_id,customer,payment,shipping,total_price,order_date,order_status) {
         this.order_id = order_id,
         this.customer = customer.customer_id,
-        this.product_id = product.product_id,
         this.shipping_id = shipping.shipping_id,
-        this.quantity = quantity,
-        this.total_price = this.quantity * this.calculateTotal(product);
+        this.total_price = total_price
         this.payment_id = payment.payment_id;
         this.order_date = order_date;
         this.order_status = order_status;
     }
-    calculateTotal(product) {
-        let pricePerUnit = product.product_price;
-        if (product.isProductDiscount) {
-            pricePerUnit = pricePerUnit * (1 - (product.productDiscountPercent / 100));
-        }
-        return pricePerUnit;
+}
+
+class OrderItem {
+    constructor(order_item_id,order,product,quantity) {
+        this.order_item_id = order_item_id,
+        this.order_id = order.order_id,
+        this.product_id = product.product_id,
+        this.quantity = quantity
     }
 }
 class Reviews {
@@ -132,8 +133,10 @@ const logistics_company_1 = new Logistics_Company("LCOM001","Movemi","0201","ade
 const logisticCompanyList = [logistics_company_1];
 const shipping_1 = new Shipments('SH001',logistics_company_1,"Delivered","01022000");
 const shipmentHistory = [shipping_1];
-const order_1 = new Orders("O001",customer_1,product_1,payment_1,shipping_1,2,"01022000",'Completed');
-const order_2 = new Orders("O002",customer_1,product_2,payment_2,shipping_1,2,"01022000",'Completed');
+const order_1 = new Orders("O001",customer_1,payment_1,shipping_1,1500,"01022000",'Completed');
+const order_2 = new Orders("O002",customer_1,payment_2,shipping_1,2000,"01022000",'Completed');
+const orderItem1 = new OrderItem("OI001","O001",product_1,2);
+const orderItem2 = new OrderItem("OI002","O002",product_2,2);
 const review_1 = new Reviews("R001",order_1,4.5,"Good","05022000");
 const review_2 = new Reviews("R002",order_2,4.85,"Excellent","06022000");
 const cart_01 = [order_1,order_2];
