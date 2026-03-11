@@ -110,24 +110,34 @@ class Reviews {
 }
 
 const customer_1 = new Customers("C001","Thomas","6 St. Rd.", "1122", "aa@gmail.com");
+const CustomerList = [customer_1];
 const author_1 = new Authors("A001","Henry","Born in UK");
-const author_2 = new Authors("A002","Marty","Born in US")
+const author_2 = new Authors("A002","Marty","Born in US");
+const AuthorList = [author_1,author_2];
 const product_publisher_1 = new Product_publisher("PUBSHER001","Cheng Chung","0123","ab@gmail.com","12 Red st.");
+const PublisherList = [product_publisher_1];
 const product_publish_1 = new Product_publish("PUB001", product_publisher_1,"01052000");
 const product_publish_2 = new Product_publish("PUB002", product_publisher_1,"01062000");
+const ProductPublishHistory = [product_publish_1,product_publish_2];
 const product_1 = new Products("P001","Modern Chinese","Learning Chinese 1", author_1,product_publish_1,"14177","Language",500,true,10);
-const product_2 = new Products("P002","Modern chinese 2","Learning Chinese 2",author_2,product_publish_2,"11202","Lanuage",850,false,0) 
+const product_2 = new Products("P002","Modern chinese 2","Learning Chinese 2",author_2,product_publish_2,"11202","Lanuage",850,false,0);
+const porductList = [product_1,product_2]; 
 const product_inventory_1 = new Products_Inventory(product_1,"Available",10);
 const product_inventory_2 = new Products_Inventory(product_2,"Available",10);
+const productStock = [product_inventory_1,product_inventory_2];
 const payment_1 = new Payments("PAY001","VISA","01022000","Completed");
 const payment_2 = new Payments("PAY002","VISA","01022000","Completed");
+const paymentHistory = [payment_1,payment_2];
 const logistics_company_1 = new Logistics_Company("LCOM001","Movemi","0201","ade@gmail.com","87 io rd.");
+const logisticCompanyList = [logistics_company_1];
 const shipping_1 = new Shipments('SH001',logistics_company_1,"Delivered","01022000");
+const shipmentHistory = [shipping_1];
 const order_1 = new Orders("O001",customer_1,product_1,payment_1,shipping_1,2,"01022000",'Completed');
 const order_2 = new Orders("O002",customer_1,product_2,payment_2,shipping_1,2,"01022000",'Completed');
 const review_1 = new Reviews("R001",order_1,4.5,"Good","05022000");
 const review_2 = new Reviews("R002",order_2,4.85,"Excellent","06022000");
 const cart_01 = [order_1,order_2];
+const reviewList = [review_1,review_2];
 
 console.log(customer_1);
 console.log(author_1);
