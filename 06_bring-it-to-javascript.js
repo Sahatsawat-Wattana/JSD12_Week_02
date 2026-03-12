@@ -33,6 +33,13 @@ class Product_publish {
         this.published_date = published_date
     }
 }
+class Products_Category {
+    constructor(category_id,category_name) {
+        this.category_id = category_id,
+        this.category_name = category_name
+    }
+};
+
 class Products {
     constructor(product_id,product_name,product_description,author,product_publish,product_isbn,product_category,product_price,isProductDiscount,productDiscountPercent) {
         this.product_id = product_id,
@@ -41,23 +48,30 @@ class Products {
         this.author_id = author.author_id,
         this.product_publish_id = product_publish.publish_id,
         this.product_isbn = product_isbn,
-        this.product_category = product_category,
+        this.product_category_id = product_category.category_id,
         this.product_price = product_price,
         this.isProductDiscount = isProductDiscount,
         this.productDiscountPercent = productDiscountPercent
     }
 }
 class Products_Inventory {
-    constructor(product,product_inventory_status,product_inventory_quantity) {
+    constructor(product_inventory_id,product,product_inventory_status,product_inventory_quantity) {
+        this.product_inventory_id  = product_inventory_id
         this.product_id = product.product_id,
         this.isinStock = product_inventory_status,
         this.product_inventory_quantity = product_inventory_quantity
     }
 }
+class Payment_methods {
+    constructor(payment_method_id,payment_method_name) {
+        this.payment_method_id = payment_method_id,
+        this.payment_method_name = payment_method_name
+    }
+}
 class Payments {
     constructor(payment_id,payment_method,payment_date,payment_status) {
         this.payment_id = payment_id,
-        this.payment_method = payment_method,
+        this.payment_method_id = payment_method.payment_method_id,
         this.payment_date = payment_date,
         this.payment_status = payment_status
     }
@@ -120,14 +134,16 @@ const PublisherList = [product_publisher_1];
 const product_publish_1 = new Product_publish("PUB001", product_publisher_1,"01052000");
 const product_publish_2 = new Product_publish("PUB002", product_publisher_1,"01062000");
 const ProductPublishHistory = [product_publish_1,product_publish_2];
-const product_1 = new Products("P001","Modern Chinese","Learning Chinese 1", author_1,product_publish_1,"14177","Language",500,true,10);
-const product_2 = new Products("P002","Modern chinese 2","Learning Chinese 2",author_2,product_publish_2,"11202","Lanuage",850,false,0);
+const product_cat1 = new Products_Category("C001","Language")
+const product_1 = new Products("P001","Modern Chinese","Learning Chinese 1", author_1,product_publish_1,"14177",product_cat1,500,true,10);
+const product_2 = new Products("P002","Modern chinese 2","Learning Chinese 2",author_2,product_publish_2,"11202",product_cat1,850,false,0);
 const porductList = [product_1,product_2]; 
-const product_inventory_1 = new Products_Inventory(product_1,true,10);
-const product_inventory_2 = new Products_Inventory(product_2,true,10);
+const product_inventory_1 = new Products_Inventory("PI001",product_1,true,10);
+const product_inventory_2 = new Products_Inventory("PI002",product_2,true,10);
 const productStock = [product_inventory_1,product_inventory_2];
-const payment_1 = new Payments("PAY001","VISA","01022000","Completed");
-const payment_2 = new Payments("PAY002","VISA","01022000","Completed");
+const payment_method1 = new Payment_methods("PM001","VISA")
+const payment_1 = new Payments("PAY001",payment_method1,"01022000","Completed");
+const payment_2 = new Payments("PAY002",payment_method1,"01022000","Completed");
 const paymentHistory = [payment_1,payment_2];
 const logistics_company_1 = new Logistics_Company("LCOM001","Movemi","0201","ade@gmail.com","87 io rd.");
 const logisticCompanyList = [logistics_company_1];
