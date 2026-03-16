@@ -1,0 +1,1 @@
+MongoDB is one of open-source document-based NoSQL databases.That is not relational databases. It is the modern way to store and manage data that is easier to scale up or in the other words, increase scalability. It stores as BSON file. The query language is MQL, MongoDB query language.
